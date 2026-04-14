@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "Work",
+    "description": "Sculptor works collection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
+    "date": {
+      "type": "date",
+      "required": false
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Escultura",
+        "Pintura",
+        "Fotografía",
+        "Abstracto",
+        "Realismo",
+        "Cerámica"
+      ],
+      "required": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "materials": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "options": [
+        "Bronce",
+        "Mármol",
+        "Madera",
+        "Hierro",
+        "Acero",
+        "Piedra",
+        "Cerámica",
+        "Arcilla",
+        "Resina",
+        "Yeso",
+        "Metal",
+        "Vidrio",
+        "Mixto"
+      ]
+    }
+  }
+}

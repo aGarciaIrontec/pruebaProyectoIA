@@ -1,0 +1,72 @@
+{
+  "kind": "singleType",
+  "collectionName": "home",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home",
+    "description": "Home page content"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_label": {
+      "type": "string",
+      "required": false
+    },
+    "hero_title": {
+      "type": "string",
+      "required": true
+    },
+    "hero_subtitle": {
+      "type": "text",
+      "required": false
+    },
+    "hero_btn": {
+      "type": "string",
+      "required": false
+    },
+    "hero_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "featured_label": {
+      "type": "string",
+      "required": false
+    },
+    "featured_title": {
+      "type": "string",
+      "required": false
+    },
+    "featured_btn": {
+      "type": "string",
+      "required": false
+    },
+    "artist_label": {
+      "type": "string",
+      "required": false
+    },
+    "artist_title": {
+      "type": "string",
+      "required": false
+    },
+    "artist_bio": {
+      "type": "richtext",
+      "required": false
+    },
+    "artist_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
