@@ -56,11 +56,6 @@ export interface Work {
   materials: string[];
 }
 
-export interface Video {
-  title: string;
-  video: StrapiImage | null;
-}
-
 export interface Home {
   hero_label: string;
   hero_title: string;
