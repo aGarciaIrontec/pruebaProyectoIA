@@ -3,11 +3,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { WorkService } from '@services/work.service';
 import { StrapiData, Work } from '@models/strapi.model';
+import { FeaturedWorksComponent } from '../../components/featured-works/featured-works.component';
 
 @Component({
   selector: 'app-work-detail',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, FeaturedWorksComponent],
   styleUrls: ['./work-detail.component.scss'],
   template: `
     @if (loading()) {
@@ -68,6 +69,13 @@ import { StrapiData, Work } from '@models/strapi.model';
             </div>
           </div>
         </section>
+
+        <!-- FEATURED WORKS (Reutilizado) -->
+        <app-featured-works 
+          title="Otras obras destacadas" 
+          label="Sugerencias" 
+          [showCta]="false" 
+        />
       </div>
     }
   `,

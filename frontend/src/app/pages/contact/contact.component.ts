@@ -1,11 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { ContactService } from '@services/contact.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   template: `
     <section class="contact">
       <div class="contact__container">
@@ -18,7 +19,9 @@ import { ContactService } from '@services/contact.service';
 
         @if (sent()) {
           <div class="contact__success">
-            <p>✓ Tu mensaje ha sido enviado correctamente. Te responderemos lo antes posible.</p>
+            <div class="success__icon">✓</div>
+            <p class="success__message">Tu mensaje ha sido enviado correctamente. Te responderemos lo antes posible.</p>
+            <a routerLink="/" class="success__btn">Volver al inicio</a>
           </div>
         } @else {
           <form class="contact__form" (ngSubmit)="onSubmit()">

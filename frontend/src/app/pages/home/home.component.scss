@@ -30,17 +30,80 @@
     letter-spacing: -0.03em;
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
+  &__title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 640px) {
+      justify-content: center;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  &__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid #d2d2d7;
+    background: white;
+    color: #1d1d1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #f5f5f7;
+      border-color: #86868b;
     }
 
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
+    &:active {
+      transform: scale(0.95);
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__slider-wrapper {
+    position: relative;
+    margin: 0 -1.5rem; // Salir del contenedor para el sangrado
+    padding: 0 0.75rem;
+  }
+
+  &__slider {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; // Firefox
+    padding-bottom: 1rem;
+
+    &::-webkit-scrollbar {
+      display: none; // Chrome/Safari
+    }
+
+    .work-card {
+      flex: 0 0 100%;
+      min-width: 0;
+
+      @media (min-width: 768px) {
+        flex: 0 0 50%;
+      }
+
+      @media (min-width: 1024px) {
+        flex: 0 0 33.333%;
+      }
     }
   }
 
@@ -185,10 +248,21 @@
 
   &__image-wrapper {
     position: relative;
+    width: 100%;
+    // Evita que la imagen colapse si hay mucho texto al lado
+    flex-shrink: 0;
+
+    @media (min-width: 1024px) {
+      position: sticky;
+      top: 100px;
+    }
   }
 
   &__image {
     width: 100%;
+    // Asegura una altura mínima y máxima proporcional
+    min-height: 400px;
+    max-height: 70vh;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 20px;
@@ -198,6 +272,11 @@
 
     &:hover {
       filter: grayscale(0%);
+    }
+
+    @media (max-width: 1023px) {
+      aspect-ratio: 1 / 1;
+      max-height: 500px;
     }
   }
 
@@ -237,5 +316,9 @@
     font-size: 1.0625rem;
     line-height: 1.6;
     font-weight: 300;
+
+    p {
+      margin: 0;
+    }
   }
 }
