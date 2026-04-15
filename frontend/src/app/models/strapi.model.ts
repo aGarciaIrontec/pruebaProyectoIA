@@ -70,3 +70,8 @@ export interface Home {
   artist_bio: string;
   artist_image: StrapiImage | null;
 }
+
+export interface Testimonial {
+  username: string;
+  text: string;
+}
