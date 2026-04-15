@@ -37,52 +37,54 @@
   }
 
   &__label {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.8125rem;
-    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.6875rem;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
-    margin-bottom: 1.5rem;
+    letter-spacing: 0.35em;
+    margin-bottom: 2rem;
     animation: fadeIn 1s ease-out;
   }
 
   &__title {
     color: #f5f5f7;
     font-size: clamp(2.75rem, 8vw, 5.5rem);
-    font-weight: 600;
+    font-weight: 200;
     line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
+    letter-spacing: -0.045em;
+    margin-bottom: 1.75rem;
   }
 
   &__subtitle {
-    color: rgba(255, 255, 255, 0.56);
-    font-size: clamp(1.0625rem, 2vw, 1.3125rem);
+    color: rgba(255, 255, 255, 0.42);
+    font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
     font-weight: 300;
-    max-width: 42rem;
-    margin: 0 auto 2.5rem;
-    line-height: 1.5;
+    max-width: 38rem;
+    margin: 0 auto 3rem;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
   }
 
   &__cta {
     display: inline-block;
-    background: #1d1d1f;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: #ffffff;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 980px;
-      padding: 1.1rem 2.5rem;
-      min-height: 3.2rem;
-      font-size: 1rem;
-      font-weight: 600;
-    letter-spacing: -0.01em;
-    text-transform: none;
+    padding: 0.875rem 2.25rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 
     &:hover {
-      background: #000000;
-      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.35);
     }
   }
 

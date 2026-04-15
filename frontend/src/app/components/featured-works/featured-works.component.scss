@@ -15,18 +15,18 @@
 
   &__label {
     color: #86868b;
-    font-size: 0.8125rem;
+    font-size: 0.6875rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     margin-bottom: 0.75rem;
   }
 
   &__title {
     color: #1d1d1f;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
   }
 
   &__title-row {
@@ -165,14 +165,16 @@
 
       &__title {
         color: #1d1d1f;
-        font-size: 1.0625rem;
-        font-weight: 600;
+        font-size: 0.875rem;
+        font-weight: 400;
+        letter-spacing: -0.01em;
         margin: 0;
       }
 
       &__date {
         color: #86868b;
-        font-size: 0.8125rem;
+        font-size: 0.75rem;
+        font-weight: 300;
         margin-top: 0.25rem;
       }
     }

@@ -1,10 +1,10 @@
 // ================================================================
-// Biography Page — Editorial · Apple-grade polish
+// Biography Page — Editorial
 // ================================================================
 
-$font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+$font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 $black: #1d1d1f;
-$mid:   #6e6e73;
+$mid:   #86868b;
 $soft:  #86868b;
 $bg:    #f5f5f7;
 $white: #ffffff;
@@ -12,7 +12,7 @@ $ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
 
 // ── Shared ────────────────────────────────────────────────────────
 .bio-page {
-  padding-top: 80px;
+  padding-top: 56px;
   font-family: $font;
   color: $black;
   overflow-x: hidden;
@@ -20,13 +20,13 @@ $ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
 
 .bio-label {
   display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.6875rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: $soft;
 
-  &--light { color: rgba($white, 0.5); }
+  &--light { color: rgba($white, 0.4); }
 }
 
 // ── HERO ──────────────────────────────────────────────────────────
@@ -86,19 +86,19 @@ $ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   &__eyebrow {
-    font-size: 0.8125rem;
-    font-weight: 500;
+    font-size: 0.6875rem;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.25em;
     color: $soft;
-    margin: 0 0 1.5rem;
+    margin: 0 0 2rem;
   }
 
   &__name {
     font-size: clamp(3.5rem, 7vw, 6.5rem);
-    font-weight: 700;
-    letter-spacing: -0.045em;
-    line-height: 0.95;
+    font-weight: 200;
+    letter-spacing: -0.05em;
+    line-height: 0.92;
     color: $black;
     margin: 0 0 2.5rem;
   }
@@ -134,18 +134,19 @@ $ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
   gap: 0.25rem;
 
   &__num {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.75rem;
+    font-weight: 200;
     letter-spacing: -0.04em;
     color: $black;
     line-height: 1;
   }
 
   &__label {
-    font-size: 0.8125rem;
+    font-size: 0.6875rem;
     color: $soft;
     font-weight: 400;
     white-space: nowrap;
+    letter-spacing: 0.02em;
   }
 }
 
@@ -161,8 +162,8 @@ $ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   &__quote {
-    font-size: clamp(1.5rem, 3.5vw, 2.75rem);
-    font-weight: 300;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 200;
     line-height: 1.45;
     letter-spacing: -0.025em;
     color: $white;
@@ -258,8 +259,8 @@ $ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   &__title {
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
-    font-weight: 600;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-weight: 300;
     letter-spacing: -0.04em;
     line-height: 1.1;
     color: $black;
@@ -365,8 +366,8 @@ $ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   &__title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 300;
     letter-spacing: -0.04em;
     color: $white;
     margin: 0;
@@ -407,8 +408,8 @@ $ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   &__title {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
     letter-spacing: -0.02em;
     color: $white;
     margin: 0;

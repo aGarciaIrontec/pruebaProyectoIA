@@ -15,17 +15,18 @@
 
   &__title {
     color: #1d1d1f;
-    font-size: 3rem;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.045em;
+    margin-bottom: 1rem;
   }
 
   &__subtitle {
-    font-size: 1.125rem;
-    color: #6e6e73;
-    line-height: 1.5;
-    max-width: 600px;
+    font-size: 0.9375rem;
+    color: #86868b;
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 480px;
     margin: 0 auto;
   }
 
@@ -45,58 +46,60 @@
     gap: 0.5rem;
 
     label {
-      font-size: 0.875rem;
+      font-size: 0.6875rem;
       font-weight: 500;
-      color: #1d1d1f;
-      padding-left: 0.5rem;
+      color: #86868b;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding-left: 0.125rem;
     }
 
     input, textarea {
-      padding: 1rem;
-      border: 1px solid #d2d2d7;
-      border-radius: 12px;
-      font-size: 1rem;
-      background-color: #f5f5f7;
-      transition: all 0.3s ease;
+      padding: 0.875rem 0;
+      border: none;
+      border-bottom: 1px solid #d2d2d7;
+      border-radius: 0;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      font-family: inherit;
+      background-color: transparent;
+      color: #1d1d1f;
+      transition: border-color 0.35s ease;
 
       &:focus {
         outline: none;
-        border-color: #0071e3;
-        background-color: #ffffff;
-        box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+        border-bottom-color: #1d1d1f;
       }
 
       &::placeholder {
-        color: #86868b;
+        color: #c7c7cc;
+        font-weight: 300;
       }
     }
   }
 
   &__submit {
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: 1.5rem;
+    padding: 0.875rem 2rem;
     background: #1d1d1f;
     color: #ffffff;
     border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
+    border-radius: 980px;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-family: inherit;
+    align-self: flex-start;
+    transition: all 0.35s ease;
 
     &:hover {
-      background: #000000;
-      transform: translateY(-2px);
-    }
-
-    &:active {
-      transform: translateY(0);
+      background: #000;
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.35;
       cursor: not-allowed;
-      transform: none;
     }
   }
 
