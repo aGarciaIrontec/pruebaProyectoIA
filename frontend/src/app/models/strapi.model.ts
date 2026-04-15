@@ -51,6 +51,7 @@ export interface Work {
   date: string;
   category: 'Escultura' | 'Pintura' | 'Fotografía' | 'Abstracto' | 'Realismo' | 'Cerámica';
   image: StrapiImage | null;
+  other_images: StrapiImage[] | null;
   slug: string;
   featured: boolean;
   materials: string[];

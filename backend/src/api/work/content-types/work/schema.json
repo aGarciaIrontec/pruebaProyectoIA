@@ -52,6 +52,12 @@
       "default": false,
       "required": false
     },
+    "other_images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
     "materials": {
       "type": "customField",
       "customField": "plugin::multi-select.multi-select",

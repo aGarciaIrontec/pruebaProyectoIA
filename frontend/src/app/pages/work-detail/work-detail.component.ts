@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { WorkService } from '@services/work.service';
@@ -52,12 +52,29 @@ import { FeaturedWorksComponent } from '../../components/featured-works/featured
         <section class="work-main">
           <div class="work-main__container">
             <div class="work-main__image">
-              <div class="image-wrapper">
-                <img
-                  [src]="getMainImage()"
-                  [alt]="work()!.title"
-                  loading="eager"
-                />
+              <div class="gallery">
+                <div class="gallery__main">
+                  <img
+                    [src]="selectedImage()"
+                    [alt]="work()!.title"
+                    loading="eager"
+                  />
+                </div>
+
+                @if (allImages().length > 1) {
+                  <div class="gallery__thumbs">
+                    @for (img of allImages(); track img) {
+                      <button
+                        class="gallery__thumb"
+                        [class.gallery__thumb--active]="selectedImage() === img"
+                        (click)="selectImage(img)"
+                        type="button"
+                      >
+                        <img [src]="img" [alt]="work()!.title" loading="lazy" />
+                      </button>
+                    }
+                  </div>
+                }
               </div>
             </div>
 
@@ -86,6 +103,20 @@ export class WorkDetailComponent implements OnInit {
 
   work = signal<StrapiData<Work> | null>(null);
   loading = signal(true);
+  selectedImage = signal<string>('');
+
+  allImages = computed<string[]>(() => {
+    const w = this.work();
+    if (!w) return [];
+    const imgs: string[] = [];
+    if (w.image?.url) imgs.push(this.workService.getImageUrl(w.image.url));
+    if (w.other_images?.length) {
+      for (const img of w.other_images) {
+        if (img?.url) imgs.push(this.workService.getImageUrl(img.url));
+      }
+    }
+    return imgs;
+  });
 
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug');
@@ -94,6 +125,7 @@ export class WorkDetailComponent implements OnInit {
         next: (res) => {
           if (res.data.length > 0) {
             this.work.set(res.data[0]);
+            this.selectedImage.set(this.workService.getImageUrl(res.data[0].image?.url));
           }
           this.loading.set(false);
         },
@@ -105,6 +137,10 @@ export class WorkDetailComponent implements OnInit {
     } else {
       this.loading.set(false);
     }
+  }
+
+  selectImage(url: string): void {
+    this.selectedImage.set(url);
   }
 
   getMainImage(): string {
