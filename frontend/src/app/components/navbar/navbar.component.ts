@@ -8,58 +8,58 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   template: `
     <header class="navbar" [class.scrolled]="scrolled()">
       <nav class="navbar__inner">
-        <a routerLink="/" class="logo">ESCULTOR</a>
-        <div class="nav-links">
-          <div class="nav-drawer" [style.--drawer-open]="isDropdownOpen() ? '1' : '0'">
-            <button class="nav-drawer__btn" (click)="toggleDropdown($event)" aria-label="Menú">
-              <div class="hamburger" [class.is-active]="isDropdownOpen()">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </button>
-            
-            <div class="nav-drawer__overlay" 
-                 [class.visible]="isDropdownOpen()" 
-                 (click)="isDropdownOpen.set(false)"></div>
-            
-            <div class="nav-drawer__content" [class.open]="isDropdownOpen()">
-              <button class="nav-drawer__close" (click)="isDropdownOpen.set(false)">&times;</button>
-              <nav class="nav-drawer__nav">
-                <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"
-                   class="nav-drawer__link" (click)="isDropdownOpen.set(false)">Inicio</a>
-                <a routerLink="/trabajos" routerLinkActive="active-link"
-                   class="nav-drawer__link" (click)="isDropdownOpen.set(false)">Trabajos</a>
-                <a routerLink="/contacto" routerLinkActive="active-link"
-                   class="nav-drawer__link" (click)="isDropdownOpen.set(false)">Contacto</a>
-              </nav>
-            </div>
-          </div>
-        </div>
+
+        <!-- Desktop links -->
+        <ul class="navbar__links">
+          <li>
+            <a routerLink="/" routerLinkActive="navbar__link--active"
+               [routerLinkActiveOptions]="{exact: true}" class="navbar__link">Inicio</a>
+          </li>
+          <li>
+            <a routerLink="/biografia" routerLinkActive="navbar__link--active"
+               class="navbar__link">Biografía</a>
+          </li>
+          <li>
+            <a routerLink="/trabajos" routerLinkActive="navbar__link--active"
+               class="navbar__link">Trabajos</a>
+          </li>
+          <li>
+            <a routerLink="/contacto" routerLinkActive="navbar__link--active"
+               class="navbar__link">Contacto</a>
+          </li>
+        </ul>
+
+        <!-- Mobile hamburger -->
+        <button class="navbar__burger" (click)="mobileOpen.update(v => !v)" aria-label="Menú">
+          <span [class.open]="mobileOpen()"></span>
+          <span [class.open]="mobileOpen()"></span>
+          <span [class.open]="mobileOpen()"></span>
+        </button>
       </nav>
+
+      <!-- Mobile menu -->
+      <div class="navbar__mobile" [class.navbar__mobile--open]="mobileOpen()">
+        <a routerLink="/" routerLinkActive="navbar__link--active"
+           [routerLinkActiveOptions]="{exact: true}" class="navbar__mobile-link"
+           (click)="mobileOpen.set(false)">Inicio</a>
+        <a routerLink="/biografia" routerLinkActive="navbar__link--active"
+           class="navbar__mobile-link" (click)="mobileOpen.set(false)">Biografía</a>
+        <a routerLink="/trabajos" routerLinkActive="navbar__link--active"
+           class="navbar__mobile-link" (click)="mobileOpen.set(false)">Trabajos</a>
+        <a routerLink="/contacto" routerLinkActive="navbar__link--active"
+           class="navbar__mobile-link" (click)="mobileOpen.set(false)">Contacto</a>
+      </div>
     </header>
   `,
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
   scrolled = signal(false);
-  isDropdownOpen = signal(false);
+  mobileOpen = signal(false);
 
   @HostListener('window:scroll')
   onScroll() {
     this.scrolled.set(window.scrollY > 50);
   }
-
-  toggleDropdown(event: Event) {
-    event.stopPropagation();
-    this.isDropdownOpen.update(v => !v);
-  }
-
-  @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    if (this.isDropdownOpen() && !target.closest('.nav-drawer__content')) {
-      this.isDropdownOpen.set(false);
-    }
-  }
 }
+

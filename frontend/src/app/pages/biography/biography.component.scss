@@ -1,0 +1,425 @@
+// ================================================================
+// Biography Page — Editorial · Apple-grade polish
+// ================================================================
+
+$font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+$black: #1d1d1f;
+$mid:   #6e6e73;
+$soft:  #86868b;
+$bg:    #f5f5f7;
+$white: #ffffff;
+$ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
+
+// ── Shared ────────────────────────────────────────────────────────
+.bio-page {
+  padding-top: 80px;
+  font-family: $font;
+  color: $black;
+  overflow-x: hidden;
+}
+
+.bio-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $soft;
+
+  &--light { color: rgba($white, 0.5); }
+}
+
+// ── HERO ──────────────────────────────────────────────────────────
+.bio-hero {
+  padding: clamp(5rem, 12vw, 10rem) clamp(1.5rem, 6vw, 5rem);
+  background: $white;
+
+  &__inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: clamp(3rem, 6vw, 7rem);
+    align-items: start;
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__image-col {
+    position: sticky;
+    top: 100px;
+
+    @media (max-width: 860px) {
+      position: static;
+    }
+  }
+
+  &__img,
+  &__img-placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 24px;
+    background: #d8d8dc;
+  }
+
+  &__img {
+    filter: grayscale(20%);
+    box-shadow:
+      0 4px 6px rgba(0,0,0,0.04),
+      0 20px 60px rgba(0,0,0,0.12),
+      0 60px 120px rgba(0,0,0,0.08);
+    transition: filter 0.8s $ease;
+
+    &:hover { filter: grayscale(0%); }
+  }
+
+  &__text-col {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: $soft;
+    margin: 0 0 1.5rem;
+  }
+
+  &__name {
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+    color: $black;
+    margin: 0 0 2.5rem;
+  }
+
+  &__divider {
+    width: 32px;
+    height: 1.5px;
+    background: #d2d2d7;
+    margin-bottom: 2.5rem;
+  }
+
+  &__lead {
+    font-size: clamp(1.0625rem, 1.6vw, 1.3125rem);
+    line-height: 1.7;
+    color: $mid;
+    font-weight: 300;
+    margin: 0 0 3.5rem;
+    max-width: 480px;
+  }
+
+  &__stats {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    padding-top: 2.5rem;
+    border-top: 1px solid #e8e8ed;
+  }
+}
+
+.bio-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  &__num {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: $black;
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: 0.8125rem;
+    color: $soft;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+}
+
+// ── STATEMENT ─────────────────────────────────────────────────────
+.bio-statement {
+  background: $black;
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 5rem);
+
+  &__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__quote {
+    font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+    color: $white;
+    font-style: normal;
+    margin: 0;
+    position: relative;
+
+    &::before {
+      content: '"';
+      display: block;
+      font-size: 5rem;
+      line-height: 1;
+      color: rgba($white, 0.12);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+  }
+}
+
+// ── BIO TEXTO ─────────────────────────────────────────────────────
+.bio-text {
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 5rem);
+  background: $white;
+
+  &__inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(3rem, 6vw, 7rem);
+    align-items: start;
+
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  &__col--label {
+    padding-top: 0.25rem;
+    position: sticky;
+    top: 110px;
+
+    @media (max-width: 700px) {
+      position: static;
+    }
+  }
+
+  &__col--body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    p {
+      margin: 0;
+      font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+      line-height: 1.8;
+      color: $mid;
+      font-weight: 300;
+    }
+  }
+}
+
+// ── TIMELINE ──────────────────────────────────────────────────────
+.bio-timeline {
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 5rem);
+  background: $bg;
+
+  &__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: clamp(3rem, 6vw, 7rem);
+    align-items: start;
+
+    @media (max-width: 760px) {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  &__header {
+    position: sticky;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (max-width: 760px) {
+      position: static;
+    }
+  }
+
+  &__title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    color: $black;
+    margin: 0;
+  }
+}
+
+.timeline {
+  &__item {
+    display: grid;
+    grid-template-columns: 56px 24px 1fr;
+    gap: 0;
+    align-items: stretch;
+    min-height: 80px;
+  }
+
+  &__year-col {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    padding-top: 0.15rem;
+  }
+
+  &__year {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: $soft;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  &__spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $black;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    transition: transform 0.3s $ease, box-shadow 0.3s $ease;
+    box-shadow: 0 0 0 3px rgba($black, 0.06);
+  }
+
+  &__item:hover &__dot {
+    transform: scale(1.4);
+    box-shadow: 0 0 0 6px rgba($black, 0.08);
+  }
+
+  &__line {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(to bottom, #c7c7cc 40%, transparent 100%);
+    margin: 5px auto 0;
+  }
+
+  &__body {
+    padding: 0 0 3rem 1.25rem;
+    cursor: default;
+  }
+
+  &__title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: $black;
+    margin: 0 0 0.5rem;
+    transition: color 0.3s $ease;
+  }
+
+  &__item:hover &__title {
+    color: #515154;
+  }
+
+  &__desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: $mid;
+    font-weight: 300;
+    margin: 0;
+  }
+}
+
+// ── PILARES ───────────────────────────────────────────────────────
+.bio-pillars {
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 5rem);
+  background: $black;
+
+  &__inner {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  &__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: $white;
+    margin: 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba($white, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+      gap: 1.5px;
+    }
+  }
+}
+
+.pillar {
+  background: rgba($white, 0.04);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background 0.3s $ease;
+
+  &:hover {
+    background: rgba($white, 0.08);
+  }
+
+  &__num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgba($white, 0.3);
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: $white;
+    margin: 0;
+  }
+
+  &__desc {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: rgba($white, 0.55);
+    font-weight: 300;
+    margin: 0;
+  }
+}
+

@@ -23,6 +23,7 @@ import { RouterLink } from '@angular/router';
             <h4 class="footer__subtitle">Navegación</h4>
             <ul class="footer__list">
               <li><a routerLink="/" class="footer__link">Inicio</a></li>
+              <li><a routerLink="/biografia" class="footer__link">Biografía</a></li>
               <li><a routerLink="/trabajos" class="footer__link">Trabajos</a></li>
               <li><a routerLink="/contacto" class="footer__link">Contacto</a></li>
             </ul>

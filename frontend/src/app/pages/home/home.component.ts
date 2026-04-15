@@ -10,7 +10,7 @@ import { TestimonialsComponent } from '../../components/testimonials/testimonial
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, FeaturedWorksComponent, TestimonialsComponent],
+  imports: [HeroComponent, FeaturedWorksComponent, TestimonialsComponent, RouterLink],
   styleUrls: ['./home.component.scss'],
   template: `
     <app-hero
@@ -45,6 +45,9 @@ import { TestimonialsComponent } from '../../components/testimonials/testimonial
                 <p>{{ paragraph }}</p>
               }
             </div>
+            @if(homeData()?.artist_menu_label) {
+              <a routerLink="/biografia" class="artist__btn">{{ homeData()?.artist_menu_label}}</a>
+            }
           </div>
         </div>
       </div>

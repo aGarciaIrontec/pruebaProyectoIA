@@ -69,6 +69,7 @@ export interface Home {
   artist_title: string;
   artist_bio: string;
   artist_image: StrapiImage | null;
+  artist_menu_label: string;
 }
 
 export interface Testimonial {

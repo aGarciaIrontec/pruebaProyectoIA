@@ -445,6 +445,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     artist_bio: Schema.Attribute.RichText;
     artist_image: Schema.Attribute.Media<'images'>;
     artist_label: Schema.Attribute.String;
+    artist_menu_label: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Biograf\u00EDa'>;
     artist_title: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

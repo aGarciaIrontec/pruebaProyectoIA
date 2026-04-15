@@ -321,4 +321,27 @@
       margin: 0;
     }
   }
+
+  &__btn {
+    align-self: flex-start;
+    margin-top: 2.5rem;
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    background-color: #1d1d1f;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 980px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    &:hover {
+      background-color: #424245;
+      transform: scale(1.02);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
 }

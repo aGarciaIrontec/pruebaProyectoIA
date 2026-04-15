@@ -48,6 +48,10 @@
       "type": "string",
       "required": false
     },
+    "artist_menu_label": {
+      "type": "string",
+      "default": "Biografía"
+    },
     "artist_label": {
       "type": "string",
       "required": false

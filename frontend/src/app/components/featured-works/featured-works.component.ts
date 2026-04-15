@@ -61,7 +61,7 @@ import { StrapiData, Work, Home } from '@models/strapi.model';
           @if (showCta) {
             <div class="featured__cta">
               <a routerLink="/trabajos" class="featured__btn">
-                {{ homeData()?.featured_btn || 'Ver todos los trabajos' }}
+                {{ homeData()?.featured_btn || 'Ver todas' }}
               </a>
             </div>
           }
