@@ -17,14 +17,16 @@ import { StrapiData, Work, Home } from '@models/strapi.model';
           <p class="featured__label">{{ label || homeData()?.featured_label }}</p>
           <div class="featured__title-row">
             <h2 class="featured__title">{{ title || homeData()?.featured_title }}</h2>
-            <div class="featured__controls">
-              <button (click)="scroll('left')" class="featured__arrow" aria-label="Anterior">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="m15 18-6-6 6-6"/></svg>
-              </button>
-              <button (click)="scroll('right')" class="featured__arrow" aria-label="Siguiente">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="m9 18 6-6-6-6"/></svg>
-              </button>
-            </div>
+            @if (featuredWorks().length > 3) {
+              <div class="featured__controls">
+                <button (click)="scroll('left')" class="featured__arrow" aria-label="Anterior">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button (click)="scroll('right')" class="featured__arrow" aria-label="Siguiente">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            }
           </div>
         </div>
 
