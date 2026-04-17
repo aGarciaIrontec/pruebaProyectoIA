@@ -92,6 +92,7 @@ import { FeaturedWorksComponent } from '../../components/featured-works/featured
           title="Otras obras destacadas" 
           label="Sugerencias" 
           [showCta]="false" 
+          [excludeId]="work()!.id"
         />
       </div>
     }
@@ -119,24 +120,33 @@ export class WorkDetailComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    const slug = this.route.snapshot.paramMap.get('slug');
-    if (slug) {
-      this.workService.getBySlug(slug).subscribe({
-        next: (res) => {
-          if (res.data.length > 0) {
-            this.work.set(res.data[0]);
-            this.selectedImage.set(this.workService.getImageUrl(res.data[0].image?.url));
-          }
-          this.loading.set(false);
-        },
-        error: (err: unknown) => {
-          console.error('Error loading work:', err);
-          this.loading.set(false);
-        },
-      });
-    } else {
-      this.loading.set(false);
-    }
+    this.route.paramMap.subscribe(params => {
+      const slug = params.get('slug');
+      if (slug) {
+        this.loadWork(slug);
+      } else {
+        this.loading.set(false);
+      }
+    });
+  }
+
+  private loadWork(slug: string): void {
+    this.loading.set(true);
+    this.workService.getBySlug(slug).subscribe({
+      next: (res) => {
+        if (res.data.length > 0) {
+          this.work.set(res.data[0]);
+          this.selectedImage.set(this.workService.getImageUrl(res.data[0].image?.url));
+        }
+        this.loading.set(false);
+        // Scroll to top when work changes
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      error: (err: unknown) => {
+        console.error('Error loading work:', err);
+        this.loading.set(false);
+      },
+    });
   }
 
   selectImage(url: string): void {

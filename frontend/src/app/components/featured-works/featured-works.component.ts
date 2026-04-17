@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, inject, signal, ViewChild, ElementRef, Input, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { WorkService } from '@services/work.service';
@@ -81,10 +81,15 @@ export class FeaturedWorksComponent implements OnInit {
   @Input() title: string = '';
   @Input() label: string = '';
   @Input() showCta: boolean = true;
+  @Input() excludeId: number | null = null;
 
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLDivElement>;
 
-  featuredWorks = signal<StrapiData<Work>[]>([]);
+  allFeaturedWorks = signal<StrapiData<Work>[]>([]);
+  featuredWorks = computed(() => {
+    const exclude = this.excludeId;
+    return this.allFeaturedWorks().filter(w => w.id !== exclude);
+  });
   homeData = signal<Home | null>(null);
 
   ngOnInit(): void {
@@ -111,7 +116,7 @@ export class FeaturedWorksComponent implements OnInit {
 
   private loadFeaturedWorks(): void {
     this.workService.getFeatured().subscribe({
-      next: (res) => this.featuredWorks.set(res.data),
+      next: (res) => this.allFeaturedWorks.set(res.data),
       error: (err: unknown) => console.error('Error loading featured works:', err),
     });
   }
