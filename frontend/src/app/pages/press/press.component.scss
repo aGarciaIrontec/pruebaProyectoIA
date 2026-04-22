@@ -1,0 +1,162 @@
+$ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+.press-page {
+  padding: 8rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.press-header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.press-card {
+  background: #fff;
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: transform 0.3s $ease, box-shadow 0.3s $ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e8e8ed;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.07);
+  position: relative;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 40px 0 rgba(0,0,0,0.13);
+  }
+
+  &__image-container {
+    height: 220px;
+    overflow: hidden;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    background: #f7f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s $ease;
+    border-radius: 2rem 2rem 0 0;
+  }
+
+  &:hover &__image {
+    transform: scale(1.07);
+  }
+
+  &__content {
+    padding: 2rem 2rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #86868b;
+  }
+
+  &__date {
+    color: #bdbdbd;
+    font-weight: 500;
+  }
+
+  &__title {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    color: #1a1a1a;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  &__description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-size: 1.05rem;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s $ease;
+
+    svg {
+      transition: transform 0.2s $ease;
+    }
+    &:hover {
+      color: #666;
+      svg {
+        transform: translate(2px, -2px);
+      }
+    }
+  }
+}
+
+.press-testimonials {
+  margin-top: 5rem;
+  padding: 4rem 0 0 0;
+  border-top: 2px solid #e8e8ed;
+  background: linear-gradient(180deg, #fff 80%, #f7f7fa 100%);
+}
+
+.loading, .empty {
+  text-align: center;
+  padding: 4rem;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .press-page {
+    padding-top: 6rem;
+  }
+  
+  .press-header__title {
+    font-size: 2.5rem;
+  }
+
+  .press-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

@@ -77,3 +77,11 @@ export interface Testimonial {
   username: string;
   text: string;
 }
+
+export interface News {
+  title: string;
+  date: string;
+  description: string;
+  url: string;
+  image: StrapiImage | null;
+}

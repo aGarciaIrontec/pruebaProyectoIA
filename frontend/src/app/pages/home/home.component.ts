@@ -5,12 +5,11 @@ import { HomeService } from '@services/home.service';
 import { Home } from '@models/strapi.model';
 import { HeroComponent } from './components/hero/hero.component';
 import { FeaturedWorksComponent } from '../../components/featured-works/featured-works.component';
-import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, FeaturedWorksComponent, TestimonialsComponent, RouterLink],
+  imports: [HeroComponent, FeaturedWorksComponent, RouterLink],
   styleUrls: ['./home.component.scss'],
   template: `
     <app-hero
@@ -51,8 +50,6 @@ import { TestimonialsComponent } from '../../components/testimonials/testimonial
           </div>
         </div>
       </div>
-          <!-- TESTIMONIALS -->
-    <app-testimonials />
     </section>
   `,
 })

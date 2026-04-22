@@ -24,6 +24,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
                class="navbar__link">Trabajos</a>
           </li>
           <li>
+            <a routerLink="/prensa" routerLinkActive="navbar__link--active"
+               class="navbar__link">Prensa</a>
+          </li>
+          <li>
             <a routerLink="/contacto" routerLinkActive="navbar__link--active"
                class="navbar__link">Contacto</a>
           </li>
@@ -44,10 +48,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
            (click)="mobileOpen.set(false)">Inicio</a>
         <a routerLink="/biografia" routerLinkActive="navbar__link--active"
            class="navbar__mobile-link" (click)="mobileOpen.set(false)">Biografía</a>
-        <a routerLink="/trabajos" routerLinkActive="navbar__link--active"
-           class="navbar__mobile-link" (click)="mobileOpen.set(false)">Trabajos</a>
-        <a routerLink="/contacto" routerLinkActive="navbar__link--active"
-           class="navbar__mobile-link" (click)="mobileOpen.set(false)">Contacto</a>
+          <a routerLink="/trabajos" routerLinkActive="navbar__link--active"
+            class="navbar__mobile-link" (click)="mobileOpen.set(false)">Trabajos</a>
+          <a routerLink="/prensa" routerLinkActive="navbar__link--active"
+            class="navbar__mobile-link" (click)="mobileOpen.set(false)">Prensa</a>
+          <a routerLink="/contacto" routerLinkActive="navbar__link--active"
+            class="navbar__mobile-link" (click)="mobileOpen.set(false)">Contacto</a>
       </div>
     </header>
   `,

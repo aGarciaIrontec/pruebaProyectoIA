@@ -28,5 +28,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/contact/contact.component').then((m) => m.ContactComponent),
   },
+  {
+    path: 'prensa',
+    loadComponent: () =>
+      import('./pages/press/press.component').then((m) => m.PressComponent),
+  },
   { path: '**', redirectTo: '' },
 ];
