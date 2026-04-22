@@ -27,7 +27,7 @@ import { StrapiData, Testimonial } from '@models/strapi.model';
               @for (t of visibleTestimonials(); track t.id) {
                 <div class="testimonial-card">
                   <blockquote class="testimonial-card__quote">
-                    {{ t.text }}
+                    <span class="quote-inline">“</span>{{ t.text }}<span class="quote-inline">”</span>
                   </blockquote>
                   <div class="testimonial-card__author">
                     <div class="testimonial-card__avatar-placeholder">
